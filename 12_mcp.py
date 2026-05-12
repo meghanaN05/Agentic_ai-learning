@@ -2,7 +2,7 @@ from langgraph.graph import StateGraph, START
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_community.tools import DuckDuckGoSearchRun
-from typing import TypedDict,Annotated
+from typing import TypedDict, Annotated
 from langchain_core.messages import BaseMessage, HumanMessage
 from langgraph.graph.message import add_messages
 from langgraph.prebuilt import ToolNode, tools_condition
@@ -19,7 +19,7 @@ client = MultiServerMCPClient(
     {
         "arith": {
             "transport": "stdio",
-            "command": "python3",          
+            "command": "python3",
             "args": ["/Users/nitish/Desktop/mcp-math-server/main.py"],
         },
         "expense": {
@@ -66,6 +66,7 @@ async def build_graph():
     chatbot = graph.compile()
 
     return chatbot
+
 
 async def main():
 
